@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'books_and_chapters',
     'accounts',
     'api',
-    'gunicorn'
+    'gunicorn',
 ]
 
 MIDDLEWARE = [
@@ -56,6 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'django_bookworm.urls'
@@ -141,6 +142,7 @@ REST_FRAMEWORK = {
 LOGIN_REDIRECT_URL = '/books/'
 
 LOGOUT_REDIRECT_URL = '/accounts/login/'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Bootstrap Crispy-Forms config
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
